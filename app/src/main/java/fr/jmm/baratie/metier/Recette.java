@@ -8,9 +8,8 @@ public class Recette {
     private int nbPers;
     private int tempsPreparation;
     private String description;
-    private HashMap<Ingredient, Double> listeIngredient;
-    private HashMap<Utilisateur, Integer> notes;
-
+    private HashMap<Ingredient, Double> listeIngredient = new HashMap<Ingredient, Double>();
+    private HashMap<Utilisateur, Integer> notes = new HashMap<Utilisateur, Integer>();
 
 
     public Recette(String intitule, int nbPers, int tempsPreparation, String description, HashMap<Ingredient, Double> listeIngredient) {
@@ -52,7 +51,6 @@ public class Recette {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public HashMap<Ingredient, Double> getListeIngredient() {
         return listeIngredient;
