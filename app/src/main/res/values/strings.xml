@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">baratie</string>
+    <string name="app_name">Le Baratie</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -7,11 +7,14 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Accueil</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nouvelle_recette_title">Nouvelle Recette</string>
     <string name="tvTemps_de_preparation">Temps de préparation :</string>
     <string name="TextNombre_de_personne">Nombre de personne :</string>
+
 </resources>
