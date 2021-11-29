@@ -101,5 +101,8 @@
     </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="les_nouveautes">Les nouveautés</string>
+    <string name="zefezgezg">zgezg</string>
+    <string name="nouvelle_recette_title">Nouvelle Recette</string>
+    <string name="tvTemps_de_preparation">Temps de préparation :</string>
+    <string name="TextNombre_de_personne">Nombre de personne :</string>
 </resources>
