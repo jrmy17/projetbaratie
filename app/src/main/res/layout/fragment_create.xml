@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -12,16 +13,86 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvTitre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="28dp"
             android:text="@string/nouvelle_recette_title"
             android:textAllCaps="false"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNomRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Nom de la recette :"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvTitre"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitre" />
+
+        <TextView
+            android:id="@+id/tvNbPers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Nombre de personnes :"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvNomRecette"
+            app:layout_constraintTop_toBottomOf="@+id/tvNomRecette" />
+
+        <TextView
+            android:id="@+id/tvNbPers2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Temps de preparation :"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvNbPers"
+            app:layout_constraintTop_toBottomOf="@+id/tvNbPers" />
+
+        <EditText
+            android:id="@+id/etNomRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:ems="8"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            android:minHeight="40dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNomRecette"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etNbPers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:ems="8"
+            android:hint="Nombre"
+            android:inputType="number"
+            android:minHeight="40dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNbPers"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/etNbPers2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:ems="8"
+            android:hint="Temps (en min)"
+            android:inputType="number|time"
+            android:minHeight="40dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNbPers2"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
