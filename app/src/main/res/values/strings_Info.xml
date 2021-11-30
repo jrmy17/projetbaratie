@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tvTemps_de_preparation">Temps de préparation :</string>
+    <string name="TextNombre_de_personne">Nombre de personne :</string>
+    <string name="description">Description :</string>
+    <string name="ingredients">Ingrédients :</string>
+</resources>

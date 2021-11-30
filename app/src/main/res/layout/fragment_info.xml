@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvIntitule"
+            android:id="@+id/tvInfoIntitule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -35,7 +35,7 @@
             android:text="@string/tvTemps_de_preparation"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/tvTextNbPersonnes" />
+            app:layout_constraintTop_toBottomOf="@+id/tvInfoTextNbPersonnes" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -45,11 +45,11 @@
             android:layout_marginTop="24dp"
             android:contentDescription="TODO"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvIntitule"
+            app:layout_constraintTop_toBottomOf="@+id/tvInfoIntitule"
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvTextNbPersonnes"
+            android:id="@+id/tvInfoTextNbPersonnes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="85dp"
-            app:layout_constraintStart_toEndOf="@+id/tvTextNbPersonnes"
+            app:layout_constraintStart_toEndOf="@+id/tvInfoTextNbPersonnes"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -76,6 +76,63 @@
             android:layout_marginTop="114dp"
             app:layout_constraintStart_toEndOf="@+id/tvTextTempsPreparation"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/ratingBarInfo"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:isIndicator="false"
+            android:max="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/tvTextDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/description"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBarInfo" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="373dp"
+            android:layout_height="163dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTextDescription" />
+
+        <TextView
+            android:id="@+id/tvTexteIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/ingredients"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvIngredients"
+            android:layout_width="367dp"
+            android:layout_height="121dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTexteIngredients" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
