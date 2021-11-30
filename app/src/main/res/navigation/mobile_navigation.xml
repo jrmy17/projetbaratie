@@ -12,14 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="fr.jmm.baratie.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_create"
+        android:name="fr.jmm.baratie.ui.create.CreateFragment"
+        android:label="@string/menu_create" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="fr.jmm.baratie.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_info"
+        android:name="fr.jmm.baratie.ui.info.InfoFragment"
+        android:label="@string/menu_info" />
 </navigation>
