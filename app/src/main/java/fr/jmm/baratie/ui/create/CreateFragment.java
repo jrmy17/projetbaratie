@@ -90,20 +90,21 @@ public class CreateFragment extends Fragment {
 
                 querySearch.clear();
 
-                for (Ingredient ingredient : MainActivity.ingredients){
-                    if(ingredient.getDesignation().toLowerCase().startsWith(query.toLowerCase())){
+                for (Ingredient ingredient : MainActivity.ingredients) {
+                    if (ingredient.getDesignation().toLowerCase().startsWith(query.toLowerCase())) {
                         querySearch.add(ingredient);
                     }
                 }
 
                 String result = "";
-                for (Ingredient i: querySearch
-                     ) {
+                for (Ingredient i : querySearch
+                ) {
                     result += i.getDesignation() + " - ";
                 }
                 ingredient.setText(result);
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
 
