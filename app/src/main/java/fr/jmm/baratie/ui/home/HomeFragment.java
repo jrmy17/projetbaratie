@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
+/*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -115,5 +115,5 @@ public class HomeFragment extends Fragment {
                 return false;
             }
         });
-    }
+    }*/
 }

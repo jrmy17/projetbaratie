@@ -1,21 +1,17 @@
 package fr.jmm.baratie.ui.create;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
-import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
-import fr.jmm.baratie.metier.Ingredient;
-import fr.jmm.baratie.metier.Recette;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,11 +72,33 @@ public class CreateFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Spinner spinner = (Spinner) getView().findViewById(R.id.spinnerIngredients);
+
+
+        SearchView searchView = getView().findViewById(R.id.svIngredients);
+        TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ingredient.setText(newText);
+                return false;
+            }
+        });
+
+
+
+
+    /*      Spinner spinner = (Spinner) getView().findViewById(R.id.spinnerIngredients);
         ArrayAdapter<Ingredient> ingredientRecetteAdapter = new ArrayAdapter<Ingredient>(getContext(), android.R.layout.simple_spinner_dropdown_item, MainActivity.ingredients);
 
         ingredientRecetteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(ingredientRecetteAdapter);
+        spinner.setAdapter(ingredientRecetteAdapter);*/
+
+
     }
 }
