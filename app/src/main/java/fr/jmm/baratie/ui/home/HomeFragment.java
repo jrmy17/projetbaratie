@@ -16,7 +16,10 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
+import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Ingredient;
+import fr.jmm.baratie.metier.Recette;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,17 +87,36 @@ public class HomeFragment extends Fragment {
 
 
         android.widget.SearchView searchView = getView().findViewById(R.id.svIngredients);
-        TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResultH);
+        TextView recette = (TextView) getView().findViewById(R.id.tvSearchResultH);
+
+        ArrayList<Recette> querySearch = new ArrayList<>();
 
         searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+
             @Override
             public boolean onQueryTextSubmit(String query) {
+
+                querySearch.clear();
+
+                for (Recette recette : MainActivity.recettes) {
+                    if (recette.getIntitule().toLowerCase().startsWith(query.toLowerCase())) {
+                        querySearch.add(recette);
+                    }
+                }
+
+                String result = "";
+                for (Recette i : querySearch
+                ) {
+                    result += i.getIntitule() + " - ";
+                }
+                recette.setText(result);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ingredient.setText(newText);
+
+
                 return false;
             }
         });
