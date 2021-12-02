@@ -127,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/svIngredients">
 
             <TextView
-                android:id="@+id/tvSearchResultH"
+                android:id="@+id/tvSearchResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
