@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="88dp"
             app:layout_constraintStart_toEndOf="@+id/tvInfoTextNbPersonnes"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,8 +92,8 @@
 
         <TextView
             android:id="@+id/tvDescription"
-            android:layout_width="373dp"
-            android:layout_height="163dp"
+            android:layout_width="350dp"
+            android:layout_height="151dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"

@@ -79,7 +79,7 @@ public class CreateFragment extends Fragment {
 
 
         SearchView searchView = getView().findViewById(R.id.svIngredients);
-        TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
+        TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResultH);
 
         ArrayList<Ingredient> querySearch = new ArrayList<>();
 
