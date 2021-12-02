@@ -57,6 +57,7 @@ public class InfoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -64,11 +65,11 @@ public class InfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        TextView tvIntitule = (TextView) getView().findViewById(R.id.tvInfoIntitule);
+        /*TextView tvIntitule = (TextView) getView().findViewById(R.id.tvInfoIntitule);
         TextView tvNbPersonne = (TextView) getView().findViewById(R.id.tvNbPersonne);
         TextView tvTempsPreparation = (TextView) getView().findViewById(R.id.tvTempsPreparation);
         TextView tvDescription = (TextView) getView().findViewById(R.id.tvDescription);
-        TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
+        TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);*/
 
 
 
