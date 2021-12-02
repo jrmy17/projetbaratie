@@ -89,7 +89,7 @@
             android:layout_marginEnd="24dp"
             android:ems="8"
             android:hint="Temps (en min)"
-            android:inputType="number|time"
+            android:inputType="number"
             android:minHeight="40dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvNbPers2"

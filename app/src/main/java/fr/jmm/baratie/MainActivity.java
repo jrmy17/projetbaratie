@@ -1,28 +1,40 @@
 package fr.jmm.baratie;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import fr.jmm.baratie.databinding.ActivityMainBinding;
+import fr.jmm.baratie.metier.Ingredient;
+import fr.jmm.baratie.metier.Recette;
 
 public class MainActivity extends AppCompatActivity {
+
+    /* Jeux de test */
+    public static ArrayList<Recette> recettes = new ArrayList<>();
+    /* ------------ */
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        init();
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -61,6 +73,45 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void init() {
+
+
+        Ingredient pattes = new Ingredient("Pattes", "grammes");
+        Ingredient jauneOeuf = new Ingredient("Jaune d'oeuf", "nombre");
+        Ingredient lardons = new Ingredient("Lardons", "grammes");
+        Ingredient cremeFraiche = new Ingredient("Crème fraiche", "grammes");
+        HashMap<Ingredient, Double> ingredientPattesCarbo = new HashMap<>();
+        ingredientPattesCarbo.put(pattes, (double) 100);
+        ingredientPattesCarbo.put(jauneOeuf, (double) 1);
+        ingredientPattesCarbo.put(lardons, (double) 50);
+        ingredientPattesCarbo.put(cremeFraiche, (double) 100);
+
+        Recette patesCarbo = new Recette("Pates Carbonara", 4, 20,
+                "De délicieuses pates à la carbonara", ingredientPattesCarbo);
+
+
+        Ingredient farine = new Ingredient("Farine", "grammes");
+        Ingredient levure = new Ingredient("Levure", "sachet");
+        Ingredient eau = new Ingredient("Eau", "cl");
+        Ingredient sauceTomate = new Ingredient("Sauce tomate", "cuillère(s) à soupe");
+        Ingredient mozzarella = new Ingredient("Mozzarella", "grammes");
+        Ingredient jambon = new Ingredient("Jambom", "tranches");
+        HashMap<Ingredient, Double> ingredientPizza = new HashMap<>();
+        ingredientPizza.put(farine, (double) 350);
+        ingredientPizza.put(levure, (double) 1);
+        ingredientPizza.put(eau, (double) 25);
+        ingredientPizza.put(sauceTomate, (double) 3);
+        ingredientPizza.put(mozzarella, (double) 125);
+        ingredientPizza.put(jambon, (double) 2);
+
+        Recette pizza = new Recette("Pizza", 6, 45,
+                "Une pizza tah délicieuse", ingredientPizza);
+
+        recettes.add(pizza);
+
+
     }
 
 }
