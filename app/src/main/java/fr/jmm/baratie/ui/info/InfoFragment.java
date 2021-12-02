@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
 import fr.jmm.baratie.metier.Recette;
 
@@ -71,6 +72,9 @@ public class InfoFragment extends Fragment {
         TextView tvDescription = (TextView) getView().findViewById(R.id.tvDescription);
         TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);*/
 
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+        TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
+        tvDescription.setText("Test");
 
 
         return inflater.inflate(R.layout.fragment_info, container, false);
