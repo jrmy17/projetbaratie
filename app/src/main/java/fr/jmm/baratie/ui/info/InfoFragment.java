@@ -98,7 +98,6 @@ public class InfoFragment extends Fragment {
         tvNbPersonne.setText(String.valueOf(maRecette.getNbPers()));
         tvTempsPreparation.setText(String.valueOf(maRecette.getTempsPreparation())+" minutes");
         tvDescription.setText(maRecette.getDescription());
-        //tvIngredients.setText(maRecette.getListeIngredient());
 
         HashMap<Ingredient, Double> ingredients = maRecette.getListeIngredient();
         String listeIngredient = "";
