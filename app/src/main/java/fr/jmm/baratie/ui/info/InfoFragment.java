@@ -90,7 +90,6 @@ public class InfoFragment extends Fragment {
         TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
 
 
-
         Recette maRecette = MainActivity.recettes.get(0);
 
 
@@ -101,9 +100,9 @@ public class InfoFragment extends Fragment {
 
         HashMap<Ingredient, Double> ingredients = maRecette.getListeIngredient();
         String listeIngredient = "";
-        for (Map.Entry ingredient: ingredients.entrySet()) {
+        for (Map.Entry ingredient : ingredients.entrySet()) {
             Ingredient i = (Ingredient) ingredient.getKey();
-            listeIngredient= listeIngredient+i.getDesignation()+" "+ ingredient.getValue()+" "+i.getUnite()+"\n";
+            listeIngredient = listeIngredient + i.getDesignation() + " " + ingredient.getValue() + " " + i.getUnite() + "\n";
         }
         tvIngredients.setText(listeIngredient);
 
