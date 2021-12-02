@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void init() {
 
+        ingredients.clear();
+        recettes.clear();
 
         Ingredient pattes = new Ingredient("Pattes", "grammes");
         Ingredient jauneOeuf = new Ingredient("Jaune d'oeuf", "nombre");
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         ingredients.add(pattes);
         ingredients.add(jambon);
         ingredients.add(lardons);
+        ingredients.add(levure);
 
         Recette pizza = new Recette("Pizza", 6, 45,
                 "Une pizza tah délicieuse", ingredientPizza);

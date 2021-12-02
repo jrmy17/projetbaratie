@@ -11,7 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Ingredient;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,14 +81,33 @@ public class CreateFragment extends Fragment {
         SearchView searchView = getView().findViewById(R.id.svIngredients);
         TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
 
+        ArrayList<Ingredient> querySearch = new ArrayList<>();
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             @Override
             public boolean onQueryTextSubmit(String query) {
+
+                querySearch.clear();
+
+                for (Ingredient ingredient : MainActivity.ingredients){
+                    if(ingredient.getDesignation().toLowerCase().startsWith(query.toLowerCase())){
+                        querySearch.add(ingredient);
+                    }
+                }
+
+                String result = "";
+                for (Ingredient i: querySearch
+                     ) {
+                    result += i.getDesignation() + " - ";
+                }
+                ingredient.setText(result);
                 return false;
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                ingredient.setText(newText);
+
+
                 return false;
             }
         });
