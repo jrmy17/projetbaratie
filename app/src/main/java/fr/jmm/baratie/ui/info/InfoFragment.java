@@ -2,15 +2,23 @@ package fr.jmm.baratie.ui.info;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Ingredient;
 import fr.jmm.baratie.metier.Recette;
 
 /**
@@ -57,6 +65,7 @@ public class InfoFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
 
     }
@@ -66,17 +75,42 @@ public class InfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        /*TextView tvIntitule = (TextView) getView().findViewById(R.id.tvInfoIntitule);
+
+        return inflater.inflate(R.layout.fragment_info, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        TextView tvIntitule = (TextView) getView().findViewById(R.id.tvInfoIntitule);
         TextView tvNbPersonne = (TextView) getView().findViewById(R.id.tvNbPersonne);
         TextView tvTempsPreparation = (TextView) getView().findViewById(R.id.tvTempsPreparation);
         TextView tvDescription = (TextView) getView().findViewById(R.id.tvDescription);
-        TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);*/
-
-        View view = inflater.inflate(R.layout.fragment_info, container, false);
-        TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
-        tvDescription.setText("Test");
+        TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
 
 
-        return inflater.inflate(R.layout.fragment_info, container, false);
+
+        Recette maRecette = MainActivity.recettes.get(0);
+
+
+        tvIntitule.setText(maRecette.getIntitule());
+        tvNbPersonne.setText(String.valueOf(maRecette.getNbPers()));
+        tvTempsPreparation.setText(String.valueOf(maRecette.getTempsPreparation()));
+        tvDescription.setText(maRecette.getDescription());
+        //tvIngredients.setText(maRecette.getListeIngredient());
+
+        HashMap<Ingredient, Double> ingredients = maRecette.getListeIngredient();
+        String listeIngredient = "";
+        for (Map.Entry ingredient: ingredients.entrySet()) {
+            Ingredient i = (Ingredient) ingredient.getKey();
+            listeIngredient= listeIngredient+i.getDesignation()+" "+ ingredient.getValue()+" "+i.getUnite()+"\n";
+        }
+        tvIngredients.setText(listeIngredient);
+
+
+
+
+
     }
 }
