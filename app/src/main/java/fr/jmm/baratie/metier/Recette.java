@@ -69,4 +69,8 @@ public class Recette {
         this.notes = notes;
     }
 
+    @Override
+    public String toString() {
+        return "intitule='" + intitule;
+    }
 }

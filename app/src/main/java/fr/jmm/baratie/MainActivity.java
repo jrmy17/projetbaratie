@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* Jeux de test */
     public static ArrayList<Recette> recettes = new ArrayList<>();
+    public static ArrayList<Ingredient> ingredients = new ArrayList<>();
     /* ------------ */
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -105,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
         ingredientPizza.put(sauceTomate, (double) 3);
         ingredientPizza.put(mozzarella, (double) 125);
         ingredientPizza.put(jambon, (double) 2);
+
+        ingredients.add(farine);
+        ingredients.add(eau);
+        ingredients.add(pattes);
+        ingredients.add(jambon);
+        ingredients.add(lardons);
 
         Recette pizza = new Recette("Pizza", 6, 45,
                 "Une pizza tah délicieuse", ingredientPizza);

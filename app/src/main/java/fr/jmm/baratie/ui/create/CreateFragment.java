@@ -2,13 +2,20 @@ package fr.jmm.baratie.ui.create;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Ingredient;
+import fr.jmm.baratie.metier.Recette;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,12 +62,25 @@ public class CreateFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Spinner spinner = (Spinner) getView().findViewById(R.id.spinnerIngredients);
+        ArrayAdapter<Ingredient> ingredientRecetteAdapter = new ArrayAdapter<Ingredient>(getContext(), android.R.layout.simple_spinner_dropdown_item, MainActivity.ingredients);
+
+        ingredientRecetteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(ingredientRecetteAdapter);
     }
 }

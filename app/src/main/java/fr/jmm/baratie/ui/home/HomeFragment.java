@@ -1,33 +1,21 @@
 package fr.jmm.baratie.ui.home;
 
 
-import android.app.SearchManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
-import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
-import fr.jmm.baratie.ui.info.InfoFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +29,10 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    SearchView searchView;
+    ListView listView;
+    ArrayList<String> list;
+    ArrayAdapter<String> adapter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -67,11 +58,6 @@ public class HomeFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
-    SearchView searchView;
-    ListView listView;
-    ArrayList<String> list;
-    ArrayAdapter<String> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,14 +96,14 @@ public class HomeFragment extends Fragment {
         list.add("Watermelon");
         list.add("Papaya");
 
-        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,list);
+        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                if(list.contains(query)){
+                if (list.contains(query)) {
                     adapter.getFilter().filter(query);
                 }
                 return false;
@@ -128,6 +114,6 @@ public class HomeFragment extends Fragment {
                 //    adapter.getFilter().filter(newText);
                 return false;
             }
+        });
     }
-}
 }

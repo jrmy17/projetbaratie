@@ -66,8 +66,7 @@
             android:minHeight="40dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvNomRecette"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
             android:id="@+id/etNbPers"
@@ -94,5 +93,36 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvNbPers2"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="Ingrédients"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvNbPers2"
+            app:layout_constraintTop_toBottomOf="@+id/tvNbPers2" />
+
+        <Spinner
+            android:id="@+id/spinnerIngredients"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
