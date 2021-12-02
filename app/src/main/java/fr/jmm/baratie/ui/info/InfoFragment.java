@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Recette;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +63,15 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        TextView tvIntitule = (TextView) getView().findViewById(R.id.tvInfoIntitule);
+        TextView tvNbPersonne = (TextView) getView().findViewById(R.id.tvNbPersonne);
+        TextView tvTempsPreparation = (TextView) getView().findViewById(R.id.tvTempsPreparation);
+        TextView tvDescription = (TextView) getView().findViewById(R.id.tvDescription);
+        TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
+
+
+
         return inflater.inflate(R.layout.fragment_info, container, false);
     }
 }
