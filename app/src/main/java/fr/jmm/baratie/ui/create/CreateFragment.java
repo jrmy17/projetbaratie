@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,12 @@ import fr.jmm.baratie.metier.Ingredient;
  * create an instance of this fragment.
  */
 public class CreateFragment extends Fragment {
+
+    // RecyclerView
+
+    private RecyclerView recyclerView; // la vue
+    private RecyclerView.Adapter adapter; // l'adaptateur
+    private RecyclerView.LayoutManager layoutManager; // le gesdtionnaire de mise en page
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +71,9 @@ public class CreateFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
+
     }
 
 
@@ -79,7 +90,7 @@ public class CreateFragment extends Fragment {
 
 
         SearchView searchView = getView().findViewById(R.id.svIngredients);
-        TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
+        /*TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
 
         ArrayList<Ingredient> querySearch = new ArrayList<>();
 
@@ -111,7 +122,7 @@ public class CreateFragment extends Fragment {
 
                 return false;
             }
-        });
+        });*/
 
 
 

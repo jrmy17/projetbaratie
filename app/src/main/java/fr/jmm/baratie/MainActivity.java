@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 "Une pizza tah délicieuse", ingredientPizza);
 
         recettes.add(pizza);
+        recettes.add(patesCarbo);
 
 
     }

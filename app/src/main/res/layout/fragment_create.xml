@@ -117,21 +117,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
 
-        <ScrollView
-            android:id="@+id/scrollViewIngredients"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listeIngredientsSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/svIngredients">
-
-            <TextView
-                android:id="@+id/tvSearchResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </ScrollView>
+            android:layout_marginTop="12dp"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/svIngredients" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -71,6 +73,7 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
     }
 
 
@@ -83,40 +86,26 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // recycler view
+        RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
+        HomeAdapter adapter = new HomeAdapter(MainActivity.recettes, getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        SearchView searchView = getView().findViewById(R.id.searchView);
 
-        android.widget.SearchView searchView = getView().findViewById(R.id.svIngredients);
-        TextView recette = (TextView) getView().findViewById(R.id.tvSearchResultH);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-        ArrayList<Recette> querySearch = new ArrayList<>();
-
-        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-
-                querySearch.clear();
-
-                for (Recette recette : MainActivity.recettes) {
-                    if (recette.getIntitule().toLowerCase().startsWith(query.toLowerCase())) {
-                        querySearch.add(recette);
-                    }
-                }
-
-                String result = "";
-                for (Recette i : querySearch
-                ) {
-                    result += i.getIntitule() + " - ";
-                }
-                recette.setText(result);
-                return false;
+                return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
-
-                return false;
+                adapter.getFilter().filter(newText);
+                return true;
             }
         });
     }
