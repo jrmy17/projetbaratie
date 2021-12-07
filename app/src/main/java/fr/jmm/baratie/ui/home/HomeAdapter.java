@@ -51,10 +51,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         holder.recetteNom.setText(recettes.get(holder.getAdapterPosition()).getIntitule());
         Integer temps = recettes.get(holder.getAdapterPosition()).getTempsPreparation();
         holder.recetteTemps.setText(temps.toString() + " minutes");
+        Integer nbPers = recettes.get(holder.getAdapterPosition()).getNbPers();
+        holder.recetteNbPers.setText(nbPers.toString() + " pers.");
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getIntitule(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getDescription(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -104,12 +106,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
         TextView recetteNom;
         TextView recetteTemps;
+        TextView recetteNbPers;
         RelativeLayout parent_layout;
 
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
             recetteNom = itemView.findViewById(R.id.recetteNom);
             recetteTemps = itemView.findViewById(R.id.recetteTemps);
+            recetteNbPers = itemView.findViewById(R.id.recetteNbPers);
             parent_layout = itemView.findViewById(R.id.parent_layout);
         }
     }

@@ -2,4 +2,5 @@
 <resources>
     <string name="les_nouveautes">Les nouveautés :</string>
     <string name="textview">TextView</string>
+    <string name="listeRecette"></string>
 </resources>
