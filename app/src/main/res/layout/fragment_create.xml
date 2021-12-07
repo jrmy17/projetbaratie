@@ -108,9 +108,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNbPers2" />
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/svIngredients"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,14 +118,25 @@
             app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listeIngredientsSearch"
-            android:layout_width="wrap_content"
+            android:id="@+id/rvAddIngredient"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/svIngredients" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/nouvel_ingredient"
+            android:textColor="#334CFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvAddIngredient" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
 import fr.jmm.baratie.metier.Ingredient;
+import fr.jmm.baratie.ui.home.HomeAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,52 +89,26 @@ public class CreateFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        RecyclerView recyclerView = getView().findViewById(R.id.rvAddIngredient);
+        CreateAdapter adapter = new CreateAdapter(MainActivity.ingredients, getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        SearchView searchView = getView().findViewById(R.id.svIngredients);
-        /*TextView ingredient = (TextView) getView().findViewById(R.id.tvSearchResult);
-
-        ArrayList<Ingredient> querySearch = new ArrayList<>();
+        androidx.appcompat.widget.SearchView searchView = getView().findViewById(R.id.svIngredients);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-
-                querySearch.clear();
-
-                for (Ingredient ingredient : MainActivity.ingredients) {
-                    if (ingredient.getDesignation().toLowerCase().startsWith(query.toLowerCase())) {
-                        querySearch.add(ingredient);
-                    }
-                }
-
-                String result = "";
-                for (Ingredient i : querySearch
-                ) {
-                    result += i.getDesignation() + " - ";
-                }
-                ingredient.setText(result);
-                return false;
+                return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
-
-                return false;
+                adapter.getFilter().filter(newText);
+                return true;
             }
-        });*/
-
-
-
-
-    /*      Spinner spinner = (Spinner) getView().findViewById(R.id.spinnerIngredients);
-        ArrayAdapter<Ingredient> ingredientRecetteAdapter = new ArrayAdapter<Ingredient>(getContext(), android.R.layout.simple_spinner_dropdown_item, MainActivity.ingredients);
-
-        ingredientRecetteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(ingredientRecetteAdapter);*/
-
+        });
 
     }
 }

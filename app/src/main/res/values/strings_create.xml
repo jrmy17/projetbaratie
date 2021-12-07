@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="nouvelle_recette_title">Nouvelle Recette</string>
+    <string name="nouvel_ingredient">Vous ne trouvez pas ? <u>Créer un nouvel ingrédient</u></string>
 </resources>
