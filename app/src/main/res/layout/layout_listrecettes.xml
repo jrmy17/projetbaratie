@@ -2,24 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
-    android:id="@+id/parent_layout">
+    android:padding="20dp"
+    android:background="#3333"
+    android:id="@+id/parent_layout"
+    android:layout_marginTop="20dp"
+    android:layout_marginHorizontal="20dp"
+    >
 
     <TextView
         android:id="@+id/recetteNom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="45dp"
-        android:text="Nom" />
+        android:text="Nom"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/recetteTemps"
-        android:layout_width="wrap_content"
+    <LinearLayout
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="45dp"
-        android:text="Temps" />
+        android:layout_below="@+id/recetteNom"
+        android:layout_marginTop="11dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/recetteTemps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
+
+            android:text="Temps" />
+
+        <TextView
+            android:id="@+id/recetteNbPers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
+            android:gravity="right"
+            android:text="NB PERSONNES" />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
