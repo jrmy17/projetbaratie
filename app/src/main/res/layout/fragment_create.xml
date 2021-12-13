@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/tvTitre"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="@string/nouvelle_recette_title"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvNomRecette" />
 
         <TextView
-            android:id="@+id/tvNbPers2"
+            android:id="@+id/tvTempsPrep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -55,6 +55,26 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/tvNbPers"
             app:layout_constraintTop_toBottomOf="@+id/tvNbPers" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Description :"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvTempsPrep"
+            app:layout_constraintTop_toBottomOf="@+id/tvTempsPrep" />
+
+        <TextView
+            android:id="@+id/tvIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="Ingrédients :"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
 
         <EditText
             android:id="@+id/etNomRecette"
@@ -68,6 +88,19 @@
             android:minHeight="40dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvNomRecette"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:ems="8"
+            android:hint="Description"
+            android:inputType="textPersonName"
+            android:minHeight="40dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDesc"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
@@ -86,7 +119,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
-            android:id="@+id/etNbPers2"
+            android:id="@+id/etTemps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -97,68 +130,32 @@
             android:inputType="number"
             android:minHeight="40dp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNbPers2"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTempsPrep"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvIngredients"
+        <EditText
+            android:id="@+id/etIngredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="Ingrédients"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:layout_marginTop="44dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNbPers2" />
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/svIngredients"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAddIngredient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/svIngredients"
-            tools:layout_editor_absoluteX="-24dp" />
-
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/btnCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/nouvel_ingredient"
-            android:textColor="#334CFF"
+            android:layout_marginTop="76dp"
+            android:text="Créer"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvAddIngredient" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAdded"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Ingrédients Actuels :"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/etIngredients" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

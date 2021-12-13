@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +25,8 @@ import java.util.HashMap;
 
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.metier.Recette;
+import fr.jmm.baratie.ui.home.HomeFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,7 +67,6 @@ public class CreateFragment extends Fragment {
         }
 
 
-
     }
 
 
@@ -79,8 +83,42 @@ public class CreateFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
 
+        EditText etNomRecette = getView().findViewById(R.id.etNomRecette);
+
+
+        EditText etNbPers = getView().findViewById(R.id.etNbPers);
+
+
+        EditText etTemps = getView().findViewById(R.id.etTemps);
+
+
+        EditText etDesc = getView().findViewById(R.id.etDesc);
+
+
+        EditText etIngredients = getView().findViewById(R.id.etIngredients);
+
+
+        Button btnCreate = getView().findViewById(R.id.btnCreate);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nom = etNomRecette.getText().toString();
+                int nbPers = Integer.parseInt(etNbPers.getText().toString());
+                int temps = Integer.parseInt(etTemps.getText().toString());
+                String description = etDesc.getText().toString();
+                String ingredients = etIngredients.getText().toString();
+
+                MainActivity.recettes.add(new Recette(nom, nbPers, temps, description, ingredients));
+
+                Navigation.findNavController(view).navigate(R.id.nav_home);
+
+            }
+
+        });
+
+
+    }
 
 
 }
