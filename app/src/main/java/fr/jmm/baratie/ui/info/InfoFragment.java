@@ -87,36 +87,16 @@ public class InfoFragment extends Fragment {
         TextView tvDescription = (TextView) getView().findViewById(R.id.tvDescription);
         TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
 
-
-
-
-
-//        Intent i = new Intent(HomeFragment.this, InfoFragment.class);
-//        String NuméroDeLaRecette = null;
-//        i.putExtra("envoiRecette", NuméroDeLaRecette);
-// Recup avec getextra
-
-
         int recupRecette=0;
         recupRecette = getArguments().getInt("envoiRecette");
         Recette maRecette = MainActivity.recettes.get(recupRecette);
-
-        //int recupRecette = getArguments().getInt("envoiRecette");
-        //recupRecette= extras.getInt("envoiRecette");
 
         tvIntitule.setText(maRecette.getIntitule());
         tvNbPersonne.setText(String.valueOf(maRecette.getNbPers()));
         tvTempsPreparation.setText(String.valueOf(maRecette.getTempsPreparation())+" minutes");
         tvDescription.setText(maRecette.getDescription());
 
-
         tvIngredients.setText(maRecette.getListeIngredient());
 
     }
 }
-
-
-//Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getIntitule(), Toast.LENGTH_SHORT).show();
-//        Intent i = new Intent(v.getContext(), InfoFragment.class);
-//        //Recette NumeroDeLaRecette = recettes.get(holder.getAdapterPosition());
-//        i.putExtra("envoiRecette", holder.getAdapterPosition());
