@@ -95,17 +95,14 @@ public class InfoFragment extends Fragment {
 //        String NuméroDeLaRecette = null;
 //        i.putExtra("envoiRecette", NuméroDeLaRecette);
 // Recup avec getextra
-        //String recupRecette;
-        Bundle extras = getActivity().getIntent().getExtras();
-        String recupRecette= extras.getString("envoiRecette");
 
 
-//
+        int recupRecette=0;
+        recupRecette = getArguments().getInt("envoiRecette");
+        Recette maRecette = MainActivity.recettes.get(recupRecette);
 
-        //String recupRecettee = "0";
-        //Recette maRecette = MainActivity.recettes.get(0);
-        Recette maRecette = MainActivity.recettes.get(Integer.parseInt(recupRecette));
-
+        //int recupRecette = getArguments().getInt("envoiRecette");
+        //recupRecette= extras.getInt("envoiRecette");
 
         tvIntitule.setText(maRecette.getIntitule());
         tvNbPersonne.setText(String.valueOf(maRecette.getNbPers()));

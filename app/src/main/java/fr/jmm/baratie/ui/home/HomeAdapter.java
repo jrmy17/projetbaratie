@@ -1,6 +1,7 @@
 package fr.jmm.baratie.ui.home;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ import java.util.Locale;
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
 import fr.jmm.baratie.metier.Recette;
+import fr.jmm.baratie.ui.info.InfoFragment;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> implements Filterable {
 
@@ -57,6 +62,21 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getDescription(), Toast.LENGTH_SHORT).show();
+
+
+                //MainActivity mainActivity = new MainActivity();
+                //mainActivity.switchFragment(holder.getAdapterPosition());
+
+                //HomeFragment homeFragment = new HomeFragment();
+                //homeFragment.switchFragment2(holder.getAdapterPosition());
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("envoiRecette", holder.getAdapterPosition());
+// set Fragmentclass Arguments
+
+                Navigation.findNavController(v).navigate(R.id.nav_info, bundle);
+
+
             }
         });
     }
