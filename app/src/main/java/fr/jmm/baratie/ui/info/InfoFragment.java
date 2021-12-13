@@ -1,5 +1,6 @@
 package fr.jmm.baratie.ui.info;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
 import fr.jmm.baratie.metier.Ingredient;
 import fr.jmm.baratie.metier.Recette;
+import fr.jmm.baratie.ui.home.HomeFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,6 +70,7 @@ public class InfoFragment extends Fragment {
 
         }
 
+
     }
 
     @Override
@@ -90,7 +93,23 @@ public class InfoFragment extends Fragment {
         TextView tvIngredients = (TextView) getView().findViewById(R.id.tvIngredients);
 
 
-        Recette maRecette = MainActivity.recettes.get(0);
+
+
+
+//        Intent i = new Intent(HomeFragment.this, InfoFragment.class);
+//        String NuméroDeLaRecette = null;
+//        i.putExtra("envoiRecette", NuméroDeLaRecette);
+// Recup avec getextra
+        //String recupRecette;
+        Bundle extras = getActivity().getIntent().getExtras();
+        String recupRecette= extras.getString("envoiRecette");
+
+
+//
+
+        //String recupRecettee = "0";
+        //Recette maRecette = MainActivity.recettes.get(0);
+        Recette maRecette = MainActivity.recettes.get(Integer.parseInt(recupRecette));
 
 
         tvIntitule.setText(maRecette.getIntitule());
@@ -108,3 +127,9 @@ public class InfoFragment extends Fragment {
 
     }
 }
+
+
+//Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getIntitule(), Toast.LENGTH_SHORT).show();
+//        Intent i = new Intent(v.getContext(), InfoFragment.class);
+//        //Recette NumeroDeLaRecette = recettes.get(holder.getAdapterPosition());
+//        i.putExtra("envoiRecette", holder.getAdapterPosition());
