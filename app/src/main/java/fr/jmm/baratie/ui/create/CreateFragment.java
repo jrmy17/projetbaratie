@@ -130,7 +130,7 @@ public class CreateFragment extends Fragment {
                         if (!String.valueOf(taskEditText.getText()).isEmpty()) {
                             double quantite = Double.parseDouble(String.valueOf(taskEditText.getText()));
 
-                            setContentView(R.layout.activity_main);
+
 
                             listeIngredients.put(ingredient, quantite);
                             CreateAddedAdapter adapter = (CreateAddedAdapter) rvAdded.getAdapter();
