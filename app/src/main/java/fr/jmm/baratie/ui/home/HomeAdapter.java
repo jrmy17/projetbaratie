@@ -61,22 +61,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, recettes.get(holder.getAdapterPosition()).getDescription(), Toast.LENGTH_SHORT).show();
-
-
-                //MainActivity mainActivity = new MainActivity();
-                //mainActivity.switchFragment(holder.getAdapterPosition());
-
-                //HomeFragment homeFragment = new HomeFragment();
-                //homeFragment.switchFragment2(holder.getAdapterPosition());
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("envoiRecette", holder.getAdapterPosition());
-// set Fragmentclass Arguments
 
                 Navigation.findNavController(v).navigate(R.id.nav_info, bundle);
-
-
             }
         });
     }
