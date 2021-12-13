@@ -8,11 +8,11 @@ public class Recette {
     private int nbPers;
     private int tempsPreparation;
     private String description;
-    private HashMap<Ingredient, Double> listeIngredient = new HashMap<Ingredient, Double>();
+    private String listeIngredient;
     private HashMap<Utilisateur, Integer> notes = new HashMap<Utilisateur, Integer>();
 
 
-    public Recette(String intitule, int nbPers, int tempsPreparation, String description, HashMap<Ingredient, Double> listeIngredient) {
+    public Recette(String intitule, int nbPers, int tempsPreparation, String description, String listeIngredient) {
         this.intitule = intitule;
         this.nbPers = nbPers;
         this.tempsPreparation = tempsPreparation;
@@ -52,12 +52,12 @@ public class Recette {
         this.description = description;
     }
 
-    public HashMap<Ingredient, Double> getListeIngredient() {
+    public String getListeIngredient() {
         return listeIngredient;
     }
 
 
-    public void setListeIngredient(HashMap<Ingredient, Double> listeIngredient) {
+    public void setListeIngredient(String listeIngredient) {
         this.listeIngredient = listeIngredient;
     }
 

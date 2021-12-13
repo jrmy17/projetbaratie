@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +19,6 @@ import java.util.ArrayList;
 
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
-import fr.jmm.baratie.metier.Ingredient;
-import fr.jmm.baratie.metier.Recette;
 
 /**
  * A simple {@link Fragment} subclass.

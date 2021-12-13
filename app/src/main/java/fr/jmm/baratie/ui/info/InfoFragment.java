@@ -1,27 +1,22 @@
 package fr.jmm.baratie.ui.info;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
-import fr.jmm.baratie.metier.Ingredient;
 import fr.jmm.baratie.metier.Recette;
-import fr.jmm.baratie.ui.home.HomeFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -117,13 +112,8 @@ public class InfoFragment extends Fragment {
         tvTempsPreparation.setText(String.valueOf(maRecette.getTempsPreparation())+" minutes");
         tvDescription.setText(maRecette.getDescription());
 
-        HashMap<Ingredient, Double> ingredients = maRecette.getListeIngredient();
-        String listeIngredient = "";
-        for (Map.Entry ingredient : ingredients.entrySet()) {
-            Ingredient i = (Ingredient) ingredient.getKey();
-            listeIngredient = listeIngredient + i.getDesignation() + " " + ingredient.getValue() + " " + i.getUnite() + "\n";
-        }
-        tvIngredients.setText(listeIngredient);
+
+        tvIngredients.setText(maRecette.getListeIngredient());
 
     }
 }
