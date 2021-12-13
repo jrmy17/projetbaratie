@@ -20,7 +20,7 @@ public class TestRecette {
 
         assertTrue(maRecette.getIntitule() == "Hamburger");
 
-        assertTrue(maRecette.getNbPers(2));
+        assertTrue(maRecette.getNbPers() == 2);
 
 
         ;
