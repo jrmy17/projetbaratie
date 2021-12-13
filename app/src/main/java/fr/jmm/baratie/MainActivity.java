@@ -76,18 +76,16 @@ public class MainActivity extends AppCompatActivity {
                 "De délicieuses pates à la carbonara", "200 grammes de lardons, 20 grammes de pattes...");
 
 
-
-
         Recette pizza = new Recette("Pizza", 6, 45,
-                "Une pizza tah délicieuse", "Patte a pizza, ...");
+                "Une pizza délicieuse", "Patte a pizza, ...");
         Recette cookie = new Recette("Cookie", 6, 25,
-                "Des cookies chococroco", "chocolat, farine...");
+                "Des cookies au chocolat blanc", "chocolat blanc, farine...");
 
         Recette feuilletesSaucisse = new Recette("Feuilletés apéritif à la saucisse", 6, 20,
-                "Un apéro tah j'ai faim", "ingredients...");
+                "Un apéro qui sera réussi", "ingredients...");
 
         Recette tartiflette = new Recette("La vraie Tartiflette", 4, 75,
-                "Une tartiflette tah lewandoski qui te fait peter le bide", "ingrTartiflette...");
+                "La meilleure des tartiflettes", "ingrTartiflette...");
 
         recettes.add(pizza);
         recettes.add(patesCarbo);
