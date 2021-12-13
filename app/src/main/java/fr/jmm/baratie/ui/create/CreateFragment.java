@@ -1,10 +1,14 @@
 package fr.jmm.baratie.ui.create;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +17,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
+import fr.jmm.baratie.databinding.FragmentCreateBinding;
 import fr.jmm.baratie.metier.Ingredient;
-import fr.jmm.baratie.ui.home.HomeAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,34 +31,26 @@ import fr.jmm.baratie.ui.home.HomeAdapter;
  */
 public class CreateFragment extends Fragment {
 
-    // RecyclerView
-
-    private RecyclerView recyclerView; // la vue
-    private RecyclerView.Adapter adapter; // l'adaptateur
-    private RecyclerView.LayoutManager layoutManager; // le gesdtionnaire de mise en page
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    // Array list des ingrédients
+    private HashMap<Ingredient, Double> listeIngredients = new HashMap<>();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
+    private RecyclerView rvAdded;
+
+    //
+
+
     public CreateFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CreateFragment newInstance(String param1, String param2) {
         CreateFragment fragment = new CreateFragment();
         Bundle args = new Bundle();
@@ -73,8 +69,6 @@ public class CreateFragment extends Fragment {
         }
 
 
-
-
     }
 
 
@@ -83,16 +77,26 @@ public class CreateFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create, container, false);
+
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        listeIngredients.put(new Ingredient("test", "test2"), 2.2);
+
         RecyclerView recyclerView = getView().findViewById(R.id.rvAddIngredient);
         CreateAdapter adapter = new CreateAdapter(MainActivity.ingredients, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        rvAdded = getView().findViewById(R.id.rvAdded);
+        CreateAddedAdapter adapter2 = new CreateAddedAdapter(listeIngredients, getContext());
+        rvAdded.setAdapter(adapter2);
+        rvAdded.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         androidx.appcompat.widget.SearchView searchView = getView().findViewById(R.id.svIngredients);
 
@@ -111,4 +115,33 @@ public class CreateFragment extends Fragment {
         });
 
     }
+
+
+    public void showAddDialog(Context c, Ingredient ingredient) {
+        final EditText taskEditText = new EditText(c);
+        taskEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Ajouter : " + ingredient.getDesignation())
+                .setMessage("Veuillez saisir une valeur en " + ingredient.getUnite())
+                .setView(taskEditText)
+                .setPositiveButton("Ajouter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (!String.valueOf(taskEditText.getText()).isEmpty()) {
+                            double quantite = Double.parseDouble(String.valueOf(taskEditText.getText()));
+
+                            setContentView(R.layout.activity_main);
+
+                            listeIngredients.put(ingredient, quantite);
+                            CreateAddedAdapter adapter = (CreateAddedAdapter) rvAdded.getAdapter();
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                })
+                .setNegativeButton("Annuler", null)
+                .create();
+        dialog.show();
+    }
+
+
 }

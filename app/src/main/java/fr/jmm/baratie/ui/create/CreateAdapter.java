@@ -1,10 +1,14 @@
 package fr.jmm.baratie.ui.create;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.RelativeLayout;
@@ -13,11 +17,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+import fr.jmm.baratie.MainActivity;
 import fr.jmm.baratie.R;
 import fr.jmm.baratie.metier.Ingredient;
 import fr.jmm.baratie.metier.Recette;
@@ -29,6 +35,7 @@ public class CreateAdapter extends RecyclerView.Adapter<CreateAdapter.CreateView
     private ArrayList<Ingredient> ingredientsAll;
     private ArrayList<Ingredient> ingredients;
     private Context mContext;
+
 
     public CreateAdapter(ArrayList<Ingredient> ingredients, Context mContext) {
         this.ingredients = ingredients;
@@ -47,11 +54,14 @@ public class CreateAdapter extends RecyclerView.Adapter<CreateAdapter.CreateView
     @Override
     public void onBindViewHolder(@NonNull CreateViewHolder holder, int position) {
         holder.nomIngredient.setText(ingredients.get(holder.getAdapterPosition()).getDesignation());
-        holder.unite.setText(ingredients.get(holder.getAdapterPosition()).getUnite());
         holder.layoutIng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, ingredients.get(holder.getAdapterPosition()).getDesignation(), Toast.LENGTH_SHORT).show();
+
+                CreateFragment createFragment = new CreateFragment();
+                createFragment.showAddDialog(mContext, ingredients.get(holder.getAdapterPosition()));
+
+
             }
         });
     }
@@ -100,13 +110,11 @@ public class CreateAdapter extends RecyclerView.Adapter<CreateAdapter.CreateView
     public class CreateViewHolder extends RecyclerView.ViewHolder{
 
         TextView nomIngredient;
-        TextView unite;
         ConstraintLayout layoutIng;
 
         public CreateViewHolder(@NonNull View itemView) {
             super(itemView);
             nomIngredient = itemView.findViewById(R.id.nomIngredient);
-            unite = itemView.findViewById(R.id.unite);
             layoutIng = itemView.findViewById(R.id.layoutIng);
         }
     }
